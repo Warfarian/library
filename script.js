@@ -31,7 +31,7 @@ function displayLibrary(){
 
 function appendBookToDOM(book){
     const cards = document.createElement('div');
-    cards.innerHTML = `Name: ${myLibrary[i].name} , Author: ${myLibrary[i].author} , Length: ${myLibrary[i].length}`;
+    cards.innerHTML = `Name: ${book.name} , Author: ${book.author} , Length: ${book.length}`;
     display.appendChild(cards);
 }
 
