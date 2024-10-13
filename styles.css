@@ -89,3 +89,11 @@ form input[type = submit]:hover{
     background-color: azure;
     transition: .4s ease-in-out;
 }
+
+form input[type = number]:invalid{
+    background-color: rgb(194, 47, 47);
+}
+
+form input[type = text]:invalid{
+    background-color: rgb(194, 47, 47);
+}

@@ -1,4 +1,4 @@
-// Main array of books
+    // Main array of books
 const myLibrary = [
     new Book("Lord of the Rings", "J.R.R Tolkien", "122 pages", "read"),
     new Book("Naked Lunch", "J.A. Bayona", "164 pages", "unread"),
@@ -7,6 +7,7 @@ const myLibrary = [
 
 // Book constructor function
 function Book(name, author, length, status) {
+    this.name = name;
     this.name = name;
     this.author = author;
     this.length = length;

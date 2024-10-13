@@ -10,21 +10,58 @@
     <h1>Library</h1>
     <form action="#" id="Form" method="post">
             <label for="name">Book Name :</label>
-            <input type="text" id="name" class="name" name="name" placeholder="ex: Pride and Prejudice ">
+            <input type="text" id="name" class="name" name="name" placeholder="ex: Pride and Prejudice" required>
             <label for="author">Author :</label>
-            <input type="text" id="author" class="author" name="author" placeholder="ex: Jane Austen ">
+            <input type="text" id="author" class="author" name="author" placeholder="ex: Jane Austen " required>
             <label for="length">No of pages :</label>
-            <input type="number" name="length" id="length" class="length" placeholder="ex: 279 ">
+            <input type="number" name="length" id="length" class="length" placeholder="ex: 279 " required>
             <label for="read">read</label>
-            <input type="radio" id="read" class="status" name="status" value="read">
+            <input type="radio" id="read" class="status" name="status" value="read" required>
             <label for="unread">unread</label>
-            <input type="radio" id="unread" class="status" name="status" value="unread">
-            <input type="submit" name="submit" id="submit">
+            <input type="radio" id="unread" class="status" name="status" value="unread" required>
+            <input type="submit" name="submit" id="submit" onclick="validate()">
     </form>
     <div class="display">
-
+        <div id="ErrorMsg"></div>
     </div>
 
 <script src="script.js"></script>
+<script>
+function validate() {
+    const name = document.getElementById('name');
+    const author = document.getElementById('author');
+    const length = document.getElementById('length');
+    const statusElements = document.getElementsByClassName('status');
+
+    let isValid = true;
+    let errorMessage = '';
+
+    if (!name.checkValidity()) {
+        isValid = false;
+        errorMessage += name.validationMessage + '<br>';
+    }
+
+    if (!author.checkValidity()) {
+        isValid = false;
+        errorMessage += author.validationMessage + '<br>';
+    }
+
+    if (!length.checkValidity()) {
+        isValid = false;
+        errorMessage += length.validationMessage + '<br>';
+    }
+
+    if (statusElements.length > 0 && !statusElements[0].checkValidity()) {
+        isValid = false;
+        errorMessage += statusElements[0].validationMessage + '<br>';
+    }
+
+    if (!isValid) {
+        document.getElementById('ErrorMsg').innerHTML = errorMessage;
+    } else {
+        document.getElementById('ErrorMsg').innerHTML = '';
+    }
+}
+</script>
 </body>
 </html>
